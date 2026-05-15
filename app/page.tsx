@@ -23,8 +23,7 @@ const planosGuaraquecaba = [
 
 const planosIlhas = [
   { nome: "100 MEGA", preco: "100" },
-  { nome: "200 MEGA", preco: "120" },
-  { nome: "400 MEGA", preco: "150" },
+  { nome: "200 MEGA", preco: "139,90" },
 ];
 
 function trackEvent(eventName: string, label: string) {
