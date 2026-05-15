@@ -23,6 +23,8 @@ export default function Home() {
         }
       `}</style>
 
+      {/* HEADER */}
+
       <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-[#020817]/90 border-b border-blue-500/20">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <Image
@@ -34,10 +36,21 @@ export default function Home() {
           />
 
           <nav className="hidden md:flex items-center gap-10 font-semibold">
-            <a href="#inicio" className="text-orange-400">Início</a>
-            <a href="#planos" className="hover:text-orange-400 transition">Planos</a>
-            <a href="#cobertura" className="hover:text-orange-400 transition">Cobertura</a>
-            <a href="#cliente" className="hover:text-orange-400 transition">Suporte</a>
+            <a href="#inicio" className="text-orange-400">
+              Início
+            </a>
+
+            <a href="#planos" className="hover:text-orange-400 transition">
+              Planos
+            </a>
+
+            <a href="#cobertura" className="hover:text-orange-400 transition">
+              Cobertura
+            </a>
+
+            <a href="#cliente" className="hover:text-orange-400 transition">
+              Suporte
+            </a>
           </nav>
 
           <a
@@ -50,6 +63,8 @@ export default function Home() {
         </div>
       </header>
 
+      {/* HERO */}
+
       <section
         id="inicio"
         className="relative min-h-screen flex items-center pt-32 px-6 overflow-hidden bg-cover bg-center"
@@ -61,6 +76,8 @@ export default function Home() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_35%,rgba(0,132,255,.45),transparent_30%),radial-gradient(circle_at_90%_50%,rgba(255,115,0,.35),transparent_30%)]" />
 
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-center relative z-10">
+          {/* TEXTO */}
+
           <motion.div
             initial={{ opacity: 0, y: 60 }}
             animate={{ opacity: 1, y: 0 }}
@@ -100,33 +117,98 @@ export default function Home() {
             </div>
           </motion.div>
 
+          {/* MAPA HERO */}
+
           <motion.div
             initial={{ opacity: 0, scale: 0.85 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
-            className="hidden lg:block relative"
+            className="hidden lg:flex relative items-center justify-center"
           >
-            <Image
-              src="/logo-guaralink.jpeg"
-              alt="GuaraLink"
-              width={650}
-              height={400}
-              className="relative z-10 rounded-[2rem] bg-white p-3 shadow-[0_0_80px_rgba(0,132,255,.45)]"
-            />
+            <div className="relative w-full max-w-[650px] h-[500px] rounded-[2rem] border border-blue-500/30 bg-[#06163a]/80 overflow-hidden shadow-[0_0_80px_rgba(0,132,255,.25)]">
+
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,132,255,.45),transparent_40%)]" />
+
+              <div className="absolute left-1/2 top-1/2 w-5 h-5 rounded-full bg-orange-500 shadow-[0_0_40px_rgba(255,115,0,1)] -translate-x-1/2 -translate-y-1/2" />
+
+              {[
+                {
+                  nome: "Guaraqueçaba",
+                  top: "18%",
+                  right: "18%",
+                },
+                {
+                  nome: "Superagui",
+                  top: "38%",
+                  right: "8%",
+                },
+                {
+                  nome: "Medeiros",
+                  bottom: "28%",
+                  right: "18%",
+                },
+                {
+                  nome: "Massarapuã",
+                  bottom: "10%",
+                  right: "10%",
+                },
+              ].map((cidade) => (
+                <motion.div
+                  key={cidade.nome}
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                  }}
+                  className="absolute"
+                  style={cidade}
+                >
+                  <div className="bg-blue-950 border border-blue-400 rounded-full px-4 py-2 shadow-[0_0_25px_rgba(0,132,255,.7)] font-bold">
+                    <span className="text-orange-400">●</span>{" "}
+                    {cidade.nome}
+                  </div>
+                </motion.div>
+              ))}
+
+              <svg
+                className="absolute inset-0 w-full h-full opacity-70"
+                viewBox="0 0 600 500"
+                fill="none"
+              >
+                <path
+                  d="M300 250 C380 140 470 120 520 120"
+                  stroke="#fb923c"
+                  strokeWidth="2"
+                  strokeDasharray="8 8"
+                />
+
+                <path
+                  d="M300 250 C390 230 500 240 540 260"
+                  stroke="#38bdf8"
+                  strokeWidth="2"
+                  strokeDasharray="8 8"
+                />
+
+                <path
+                  d="M300 250 C390 330 480 340 520 360"
+                  stroke="#fb923c"
+                  strokeWidth="2"
+                  strokeDasharray="8 8"
+                />
+
+                <path
+                  d="M300 250 C350 380 430 430 520 450"
+                  stroke="#38bdf8"
+                  strokeWidth="2"
+                  strokeDasharray="8 8"
+                />
+              </svg>
+            </div>
           </motion.div>
         </div>
       </section>
 
-      <section id="planos" className="py-24 px-6">
-        <div className="text-center mb-16">
-          <p className="text-orange-400 font-black tracking-widest mb-3">
-            PLANOS
-          </p>
-          <h2 className="text-5xl font-black">
-            Escolha o plano ideal para você
-          </h2>
-        </div>
-      </section>
+      {/* COBERTURA */}
 
       <section
         id="cobertura"
@@ -143,18 +225,29 @@ export default function Home() {
         </div>
       </section>
 
+      {/* CONTATO */}
+
       <section id="cliente" className="py-20 px-6">
         <div className="max-w-7xl mx-auto rounded-[2rem] border border-blue-500/30 bg-blue-950/30 p-10 grid lg:grid-cols-3 gap-8 items-center">
           <div>
             <h2 className="text-4xl font-black mb-4">
               Fale com a GuaraLink
             </h2>
-            <p className="text-blue-100">Estamos prontos para te atender.</p>
+
+            <p className="text-blue-100">
+              Estamos prontos para te atender.
+            </p>
           </div>
 
           <div>
-            <p className="text-orange-400 font-bold mb-2">WhatsApp</p>
-            <p className="text-3xl font-black">(41) 99612-9713</p>
+            <p className="text-orange-400 font-bold mb-2">
+              WhatsApp
+            </p>
+
+            <p className="text-3xl font-black">
+              (41) 99612-9713
+            </p>
+
             <p className="text-blue-200 mt-3">
               guaralink.guaraquecaba@gmail.com
             </p>
@@ -170,6 +263,8 @@ export default function Home() {
         </div>
       </section>
 
+      {/* FLOAT */}
+
       <a
         href={whatsapp}
         target="_blank"
@@ -177,6 +272,8 @@ export default function Home() {
       >
         📞
       </a>
+
+      {/* FOOTER */}
 
       <footer className="py-10 border-t border-blue-500/20 text-center text-blue-200 text-sm">
         © 2026 GuaraLink - Todos os direitos reservados.
