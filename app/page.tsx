@@ -1,18 +1,8 @@
-""use client";
+"use client";
 
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-import {
-  Wifi,
-  ShieldCheck,
-  Headphones,
-  Zap,
-  MapPin,
-  Instagram,
-  Facebook,
-  Gauge,
-} from "lucide-react";
 const whatsapp =
   "https://wa.me/5541996129713?text=Olá! Quero contratar a internet da GuaraLink.";
 
@@ -153,25 +143,25 @@ export default function Home() {
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               <div className="border border-blue-500/30 rounded-2xl p-4 bg-blue-950/30">
-                <Gauge className="text-orange-400 mb-3" />
+                <div className="text-3xl mb-3">⚡</div>
                 <p className="text-3xl font-black">500</p>
                 <span className="text-sm text-blue-200">Mbps</span>
               </div>
 
               <div className="border border-blue-500/30 rounded-2xl p-4 bg-blue-950/30">
-                <Wifi className="text-orange-400 mb-3" />
+                <div className="text-3xl mb-3">📶</div>
                 <p className="text-3xl font-black">&lt;10ms</p>
                 <span className="text-sm text-blue-200">Latência</span>
               </div>
 
               <div className="border border-blue-500/30 rounded-2xl p-4 bg-blue-950/30">
-                <ShieldCheck className="text-orange-400 mb-3" />
+                <div className="text-3xl mb-3">🛡️</div>
                 <p className="text-3xl font-black">99.9%</p>
                 <span className="text-sm text-blue-200">Uptime</span>
               </div>
 
               <div className="border border-blue-500/30 rounded-2xl p-4 bg-blue-950/30">
-                <Headphones className="text-orange-400 mb-3" />
+                <div className="text-3xl mb-3">🎧</div>
                 <p className="text-3xl font-black">Local</p>
                 <span className="text-sm text-blue-200">Suporte</span>
               </div>
@@ -211,8 +201,6 @@ export default function Home() {
         </div>
 
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10">
-          {/* CIDADE */}
-
           <div className="border border-blue-500/30 rounded-[2rem] bg-blue-950/30 p-8">
             <h3 className="text-center font-black text-2xl mb-8">
               GUARAQUEÇABA
@@ -263,8 +251,6 @@ export default function Home() {
               ))}
             </div>
           </div>
-
-          {/* ILHAS */}
 
           <div className="border border-blue-500/30 rounded-[2rem] bg-blue-950/30 p-8">
             <h3 className="text-center font-black text-2xl mb-8">
@@ -341,15 +327,12 @@ export default function Home() {
                   key={cidade}
                   className="border border-blue-500/30 rounded-2xl p-5 bg-blue-950/30"
                 >
-                  <MapPin className="text-orange-400 mb-3" />
-
+                  <div className="text-3xl mb-3">📍</div>
                   <p className="font-bold">{cidade}</p>
                 </div>
               ))}
             </div>
           </div>
-
-          {/* MAPA */}
 
           <div className="relative h-[500px] rounded-[2rem] border border-blue-500/30 bg-[#06163a] overflow-hidden">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,132,255,.5),transparent_40%)]" />
@@ -394,32 +377,6 @@ export default function Home() {
                 </div>
               </motion.div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* BENEFICIOS */}
-
-      <section className="py-12 px-6 border-y border-blue-500/20">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-6 text-center">
-          <div>
-            <Zap className="mx-auto text-orange-400 mb-3" />
-            <p className="font-black">INSTALAÇÃO RÁPIDA</p>
-          </div>
-
-          <div>
-            <ShieldCheck className="mx-auto text-orange-400 mb-3" />
-            <p className="font-black">SEM FIDELIDADE</p>
-          </div>
-
-          <div>
-            <Wifi className="mx-auto text-orange-400 mb-3" />
-            <p className="font-black">ESTÁVEL E CONFIÁVEL</p>
-          </div>
-
-          <div>
-            <Headphones className="mx-auto text-orange-400 mb-3" />
-            <p className="font-black">SUPORTE LOCAL</p>
           </div>
         </div>
       </section>
@@ -472,9 +429,9 @@ export default function Home() {
       <a
         href={whatsapp}
         target="_blank"
-        className="fixed bottom-8 right-8 z-50 w-16 h-16 rounded-full bg-green-500 flex items-center justify-center pulse"
+        className="fixed bottom-8 right-8 z-50 w-16 h-16 rounded-full bg-green-500 flex items-center justify-center pulse text-2xl"
       >
-        <Wifi />
+        📞
       </a>
 
       {/* FOOTER */}
@@ -493,9 +450,9 @@ export default function Home() {
             © 2026 GuaraLink - Todos os direitos reservados.
           </p>
 
-          <div className="flex gap-5">
-            <Instagram className="hover:text-orange-400 transition cursor-pointer" />
-            <Facebook className="hover:text-orange-400 transition cursor-pointer" />
+          <div className="flex gap-5 text-2xl">
+            <span>📘</span>
+            <span>📸</span>
           </div>
         </div>
       </footer>
