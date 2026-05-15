@@ -282,6 +282,48 @@ export default function Home() {
         </div>
       </section>
 
+      {/* COBERTURA */}
+      <section
+        id="cobertura"
+        className="py-20 px-6 bg-gradient-to-br from-[#020817] via-[#031b4d] to-[#020817]"
+      >
+        <div className="max-w-6xl mx-auto text-center">
+          <p className="text-orange-400 font-black tracking-widest mb-3">
+            COBERTURA
+          </p>
+
+          <h2 className="text-4xl md:text-5xl font-black mb-6">
+            Área de Cobertura GuaraLink
+          </h2>
+
+          <p className="text-blue-100 text-lg mb-12">
+            Atendimento em Guaraqueçaba, Superagui, Medeiros e
+            Massarapuã.
+          </p>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {[
+              "Guaraqueçaba",
+              "Superagui",
+              "Medeiros",
+              "Massarapuã",
+            ].map((local) => (
+              <motion.div
+                key={local}
+                whileHover={{ y: -8 }}
+                className="rounded-3xl border border-blue-500/40 bg-blue-950/50 p-8 hover:border-orange-500 transition"
+              >
+                <div className="text-5xl mb-4">📍</div>
+
+                <h3 className="text-xl font-black">
+                  {local}
+                </h3>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CLIENTE */}
       <section
         id="cliente"
