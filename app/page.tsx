@@ -52,6 +52,8 @@ export default function Home() {
         .particle { animation: particleFloat 4s infinite ease-in-out; }
       `}</style>
 
+      {/* HEADER */}
+
       <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-[#020817]/90 border-b border-blue-500/20">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <Image
@@ -63,10 +65,21 @@ export default function Home() {
           />
 
           <nav className="hidden md:flex items-center gap-10 font-semibold">
-            <a href="#inicio" className="text-orange-400">Início</a>
-            <a href="#planos" className="hover:text-orange-400 transition">Planos</a>
-            <a href="#cobertura" className="hover:text-orange-400 transition">Cobertura</a>
-            <a href="#cliente" className="hover:text-orange-400 transition">Suporte</a>
+            <a href="#inicio" className="text-orange-400">
+              Início
+            </a>
+
+            <a href="#planos" className="hover:text-orange-400 transition">
+              Planos
+            </a>
+
+            <a href="#cobertura" className="hover:text-orange-400 transition">
+              Cobertura
+            </a>
+
+            <a href="#cliente" className="hover:text-orange-400 transition">
+              Suporte
+            </a>
           </nav>
 
           <a
@@ -78,6 +91,8 @@ export default function Home() {
           </a>
         </div>
       </header>
+
+      {/* HERO */}
 
       <section
         id="inicio"
@@ -169,6 +184,7 @@ export default function Home() {
           >
             <div className="relative w-full max-w-[650px] h-[500px] rounded-[2rem] border border-blue-500/30 bg-[#06163a]/80 overflow-hidden shadow-[0_0_80px_rgba(0,132,255,.25)]">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,132,255,.45),transparent_40%)]" />
+
               <div className="absolute inset-0 opacity-25 bg-[linear-gradient(90deg,rgba(255,255,255,.15)_1px,transparent_1px),linear-gradient(rgba(255,255,255,.15)_1px,transparent_1px)] bg-[size:40px_40px]" />
 
               <div className="absolute left-1/2 top-1/2 w-5 h-5 rounded-full bg-orange-500 shadow-[0_0_40px_rgba(255,115,0,1)] -translate-x-1/2 -translate-y-1/2" />
@@ -192,20 +208,52 @@ export default function Home() {
                 </motion.div>
               ))}
 
-              <svg className="absolute inset-0 w-full h-full opacity-70" viewBox="0 0 600 500" fill="none">
-                <path d="M300 250 C380 140 470 120 520 120" stroke="#fb923c" strokeWidth="2" strokeDasharray="8 8" />
-                <path d="M300 250 C390 230 500 240 540 260" stroke="#38bdf8" strokeWidth="2" strokeDasharray="8 8" />
-                <path d="M300 250 C390 330 480 340 520 360" stroke="#fb923c" strokeWidth="2" strokeDasharray="8 8" />
-                <path d="M300 250 C350 380 430 430 520 450" stroke="#38bdf8" strokeWidth="2" strokeDasharray="8 8" />
+              <svg
+                className="absolute inset-0 w-full h-full opacity-70"
+                viewBox="0 0 600 500"
+                fill="none"
+              >
+                <path
+                  d="M300 250 C380 140 470 120 520 120"
+                  stroke="#fb923c"
+                  strokeWidth="2"
+                  strokeDasharray="8 8"
+                />
+
+                <path
+                  d="M300 250 C390 230 500 240 540 260"
+                  stroke="#38bdf8"
+                  strokeWidth="2"
+                  strokeDasharray="8 8"
+                />
+
+                <path
+                  d="M300 250 C390 330 480 340 520 360"
+                  stroke="#fb923c"
+                  strokeWidth="2"
+                  strokeDasharray="8 8"
+                />
+
+                <path
+                  d="M300 250 C350 380 430 430 520 450"
+                  stroke="#38bdf8"
+                  strokeWidth="2"
+                  strokeDasharray="8 8"
+                />
               </svg>
             </div>
           </motion.div>
         </div>
       </section>
 
+      {/* PLANOS */}
+
       <section id="planos" className="py-24 px-6 bg-[#020817]">
         <div className="text-center mb-16">
-          <p className="text-orange-400 font-black tracking-widest mb-3">PLANOS</p>
+          <p className="text-orange-400 font-black tracking-widest mb-3">
+            PLANOS
+          </p>
+
           <h2 className="text-4xl md:text-5xl font-black">
             Escolha o plano ideal para você
           </h2>
@@ -213,7 +261,9 @@ export default function Home() {
 
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10">
           <div className="border border-blue-500/30 rounded-[2rem] bg-blue-950/30 p-8">
-            <h3 className="text-center font-black text-2xl mb-8">GUARAQUEÇABA</h3>
+            <h3 className="text-center font-black text-2xl mb-8">
+              GUARAQUEÇABA
+            </h3>
 
             <div className="grid md:grid-cols-3 gap-5">
               {planosGuaraquecaba.map((plano) => (
@@ -237,7 +287,9 @@ export default function Home() {
 
                   <p className="mb-6">
                     <span className="text-sm">R$</span>{" "}
-                    <span className="text-5xl font-black">{plano.preco}</span>
+                    <span className="text-5xl font-black">
+                      {plano.preco}
+                    </span>
                     <span>/mês</span>
                   </p>
 
@@ -276,7 +328,9 @@ export default function Home() {
 
                   <p className="mb-6">
                     <span className="text-sm">R$</span>{" "}
-                    <span className="text-5xl font-black">{plano.preco}</span>
+                    <span className="text-5xl font-black">
+                      {plano.preco}
+                    </span>
                     <span>/mês</span>
                   </p>
 
@@ -300,10 +354,133 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="cobertura" className="py-24 px-6 bg-gradient-to-br from-[#020817] to-[#031a47]">
+      {/* FORMULÁRIO */}
+
+      <section id="contratar" className="py-24 px-6 bg-[#020817]">
+        <div className="max-w-5xl mx-auto rounded-[2rem] border border-orange-500/30 bg-blue-950/40 p-10 shadow-[0_0_50px_rgba(249,115,22,.15)]">
+          <div className="text-center mb-10">
+            <p className="text-orange-400 font-black tracking-widest mb-3">
+              CONTRATAÇÃO
+            </p>
+
+            <h2 className="text-4xl md:text-5xl font-black mb-4">
+              Solicite sua internet GuaraLink
+            </h2>
+
+            <p className="text-blue-100 text-lg">
+              Preencha seus dados e fale direto com nossa equipe pelo WhatsApp.
+            </p>
+          </div>
+
+          <form
+            className="grid md:grid-cols-2 gap-5"
+            onSubmit={(e) => {
+              e.preventDefault();
+
+              const form = e.currentTarget;
+
+              const nome = (
+                form.elements.namedItem("nome") as HTMLInputElement
+              ).value;
+
+              const telefone = (
+                form.elements.namedItem("telefone") as HTMLInputElement
+              ).value;
+
+              const endereco = (
+                form.elements.namedItem("endereco") as HTMLInputElement
+              ).value;
+
+              const localidade = (
+                form.elements.namedItem("localidade") as HTMLSelectElement
+              ).value;
+
+              const plano = (
+                form.elements.namedItem("plano") as HTMLSelectElement
+              ).value;
+
+              const mensagem =
+                `Olá! Quero contratar a internet da GuaraLink.%0A%0A` +
+                `Nome: ${nome}%0A` +
+                `Telefone: ${telefone}%0A` +
+                `Endereço: ${endereco}%0A` +
+                `Localidade: ${localidade}%0A` +
+                `Plano desejado: ${plano}`;
+
+              window.open(
+                `https://wa.me/5541996129713?text=${mensagem}`,
+                "_blank"
+              );
+            }}
+          >
+            <input
+              name="nome"
+              required
+              placeholder="Nome completo"
+              className="rounded-2xl bg-white/95 text-slate-900 px-5 py-4 outline-none"
+            />
+
+            <input
+              name="telefone"
+              required
+              placeholder="WhatsApp"
+              className="rounded-2xl bg-white/95 text-slate-900 px-5 py-4 outline-none"
+            />
+
+            <input
+              name="endereco"
+              required
+              placeholder="Endereço completo"
+              className="md:col-span-2 rounded-2xl bg-white/95 text-slate-900 px-5 py-4 outline-none"
+            />
+
+            <select
+              name="localidade"
+              required
+              className="rounded-2xl bg-white/95 text-slate-900 px-5 py-4 outline-none"
+            >
+              <option value="">Selecione a localidade</option>
+              <option>Guaraqueçaba</option>
+              <option>Superagui</option>
+              <option>Medeiros</option>
+              <option>Massarapuã</option>
+            </select>
+
+            <select
+              name="plano"
+              required
+              className="rounded-2xl bg-white/95 text-slate-900 px-5 py-4 outline-none"
+            >
+              <option value="">Selecione o plano</option>
+              <option>300 Mega - R$ 100</option>
+              <option>400 Mega - R$ 110</option>
+              <option>500 Mega - R$ 139,90</option>
+              <option>100 Mega - R$ 100</option>
+              <option>200 Mega - R$ 120</option>
+              <option>400 Mega Ilhas - R$ 150</option>
+            </select>
+
+            <button
+              type="submit"
+              className="md:col-span-2 bg-orange-500 hover:bg-orange-600 rounded-2xl py-5 text-xl font-black transition hover:scale-105 shadow-[0_0_30px_rgba(249,115,22,.5)]"
+            >
+              Enviar solicitação pelo WhatsApp
+            </button>
+          </form>
+        </div>
+      </section>
+
+      {/* COBERTURA */}
+
+      <section
+        id="cobertura"
+        className="py-24 px-6 bg-gradient-to-br from-[#020817] to-[#031a47]"
+      >
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <p className="text-orange-400 font-black tracking-widest mb-4">COBERTURA</p>
+            <p className="text-orange-400 font-black tracking-widest mb-4">
+              COBERTURA
+            </p>
 
             <h2 className="text-4xl md:text-5xl font-black mb-8">
               Conectando Guaraqueçaba e suas ilhas
@@ -313,47 +490,11 @@ export default function Home() {
               Atendimento de qualidade em Guaraqueçaba, Superagui, Medeiros e
               Massarapuã com a melhor fibra óptica da região.
             </p>
-
-            <div className="grid grid-cols-2 gap-5">
-              {["Guaraqueçaba", "Superagui", "Medeiros", "Massarapuã"].map(
-                (cidade) => (
-                  <div
-                    key={cidade}
-                    className="border border-blue-500/30 rounded-2xl p-5 bg-blue-950/30"
-                  >
-                    <div className="text-3xl mb-3">📍</div>
-                    <p className="font-bold">{cidade}</p>
-                  </div>
-                )
-              )}
-            </div>
-          </div>
-
-          <div className="relative h-[500px] rounded-[2rem] border border-blue-500/30 bg-[#06163a] overflow-hidden">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,132,255,.5),transparent_40%)]" />
-            <div className="absolute left-[50%] top-[50%] w-5 h-5 rounded-full bg-orange-500 shadow-[0_0_40px_rgba(255,115,0,1)]" />
-
-            {[
-              { nome: "Guaraqueçaba", top: "18%", right: "20%" },
-              { nome: "Superagui", top: "38%", right: "8%" },
-              { nome: "Medeiros", bottom: "28%", right: "18%" },
-              { nome: "Massarapuã", bottom: "10%", right: "10%" },
-            ].map((cidade) => (
-              <motion.div
-                key={cidade.nome}
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 2, repeat: Infinity }}
-                className="absolute"
-                style={cidade}
-              >
-                <div className="bg-blue-950 border border-blue-400 rounded-full px-4 py-2 shadow-[0_0_25px_rgba(0,132,255,.7)]">
-                  <span className="text-orange-400">●</span> {cidade.nome}
-                </div>
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>
+
+      {/* CONTATO */}
 
       <section id="cliente" className="py-20 px-6">
         <div className="max-w-7xl mx-auto rounded-[2rem] border border-blue-500/30 bg-blue-950/30 p-10 grid lg:grid-cols-3 gap-8 items-center">
@@ -391,6 +532,8 @@ export default function Home() {
         </div>
       </section>
 
+      {/* WHATSAPP */}
+
       <a
         href={whatsapp}
         target="_blank"
@@ -398,6 +541,8 @@ export default function Home() {
       >
         📞
       </a>
+
+      {/* FOOTER */}
 
       <footer className="py-10 border-t border-blue-500/20">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
