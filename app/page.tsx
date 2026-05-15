@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const whatsapp = "https://wa.me/5541996129713";
 
-const beesweb =
+const cliente =
   "https://wa.me/5541996129713?text=Olá! Quero acessar minha área do cliente da GuaraLink.";
 
 const planosGuaraquecaba = [
@@ -139,7 +139,7 @@ export default function Home() {
               </a>
 
               <a
-                href={beesweb}
+                href={cliente}
                 target="_blank"
                 className="border border-blue-400 px-8 py-5 rounded-2xl font-bold text-center hover:bg-blue-900 transition"
               >
@@ -293,16 +293,33 @@ export default function Home() {
           </h2>
 
           <p className="text-xl text-blue-100 mb-10">
-            Segunda via, suporte, contratos e atendimento online.
+            Segunda via, suporte e atendimento online.
           </p>
 
           <a
-            href={beesweb}
+            href={cliente}
             target="_blank"
             className="inline-block bg-orange-500 hover:bg-orange-600 px-10 py-5 rounded-2xl font-black text-xl transition hover:scale-105 shadow-[0_0_30px_rgba(249,115,22,.7)]"
           >
-            Entrar na Área do Cliente
+            Falar com Suporte
           </a>
+        </div>
+      </section>
+
+      {/* CONTATO */}
+      <section className="py-20 px-6 bg-[#020817]">
+        <div className="max-w-5xl mx-auto rounded-3xl border border-blue-500/40 bg-blue-950/50 p-10 text-center">
+          <h2 className="text-5xl font-black mb-6">
+            Fale com a GuaraLink
+          </h2>
+
+          <p className="text-2xl font-bold text-orange-400 mb-3">
+            (41) 99612-9713
+          </p>
+
+          <p className="text-blue-100 text-lg">
+            guaralink.guaraquecaba@gmail.com
+          </p>
         </div>
       </section>
 
