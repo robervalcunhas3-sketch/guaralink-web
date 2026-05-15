@@ -25,35 +25,19 @@ export default function Home() {
     <main className="min-h-screen bg-[#020817] text-white overflow-hidden">
       <style>{`
         @keyframes pulseWhats {
-          0%, 100% {
-            transform: scale(1);
-            box-shadow: 0 0 0 0 rgba(34,197,94,.7);
-          }
-          50% {
-            transform: scale(1.08);
-            box-shadow: 0 0 0 18px rgba(34,197,94,0);
-          }
+          0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(34,197,94,.7); }
+          50% { transform: scale(1.08); box-shadow: 0 0 0 18px rgba(34,197,94,0); }
         }
 
         @keyframes glow {
-          0%, 100% {
-            box-shadow: 0 0 20px rgba(255,115,0,.35);
-          }
-          50% {
-            box-shadow: 0 0 45px rgba(255,115,0,.75);
-          }
+          0%, 100% { box-shadow: 0 0 20px rgba(255,115,0,.35); }
+          50% { box-shadow: 0 0 45px rgba(255,115,0,.75); }
         }
 
-        .whats-pulse {
-          animation: pulseWhats 2s infinite;
-        }
-
-        .glow-card {
-          animation: glow 2.5s infinite ease-in-out;
-        }
+        .whats-pulse { animation: pulseWhats 2s infinite; }
+        .glow-card { animation: glow 2.5s infinite ease-in-out; }
       `}</style>
 
-      {/* HEADER */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-[#020817]/90 backdrop-blur-xl border-b border-blue-500/20">
         <div className="max-w-7xl mx-auto px-5 py-4 flex items-center justify-between">
           <Image
@@ -65,30 +49,10 @@ export default function Home() {
           />
 
           <nav className="hidden md:flex gap-8 font-semibold text-sm">
-            <a href="#inicio" className="text-orange-400">
-              Início
-            </a>
-
-            <a
-              href="#planos"
-              className="hover:text-orange-400 transition"
-            >
-              Planos
-            </a>
-
-            <a
-              href="#cobertura"
-              className="hover:text-orange-400 transition"
-            >
-              Cobertura
-            </a>
-
-            <a
-              href="#cliente"
-              className="hover:text-orange-400 transition"
-            >
-              Área do Cliente
-            </a>
+            <a href="#inicio" className="text-orange-400">Início</a>
+            <a href="#planos" className="hover:text-orange-400 transition">Planos</a>
+            <a href="#cobertura" className="hover:text-orange-400 transition">Cobertura</a>
+            <a href="#cliente" className="hover:text-orange-400 transition">Área do Cliente</a>
           </nav>
 
           <a
@@ -101,7 +65,6 @@ export default function Home() {
         </div>
       </header>
 
-      {/* HERO */}
       <section
         id="inicio"
         className="relative min-h-screen pt-32 px-6 flex items-center bg-gradient-to-br from-[#020817] via-[#06205c] to-[#020817]"
@@ -125,8 +88,7 @@ export default function Home() {
             </h1>
 
             <p className="text-xl md:text-2xl text-blue-100 max-w-2xl mb-8 font-medium">
-              Fibra óptica em Guaraqueçaba, Superagui, Medeiros e
-              Massarapuã.
+              Fibra óptica em Guaraqueçaba, Superagui, Medeiros e Massarapuã.
             </p>
 
             <div className="flex flex-col md:flex-row gap-4 max-w-3xl mb-10">
@@ -170,26 +132,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PLANOS */}
-      <section
-        id="planos"
-        className="py-24 px-6 bg-[#020817]"
-      >
+      <section id="planos" className="py-24 px-6 bg-[#020817]">
         <div className="text-center mb-14">
-          <p className="text-orange-400 font-black tracking-widest">
-            PLANOS
-          </p>
-
-          <h2 className="text-4xl md:text-5xl font-black">
-            Escolha o plano ideal
-          </h2>
+          <p className="text-orange-400 font-black tracking-widest">PLANOS</p>
+          <h2 className="text-4xl md:text-5xl font-black">Escolha o plano ideal</h2>
         </div>
 
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-8">
           <div className="border border-blue-500/40 rounded-3xl p-6 bg-blue-950/40">
-            <h3 className="text-center font-black mb-6">
-              GUARAQUEÇABA
-            </h3>
+            <h3 className="text-center font-black mb-6">GUARAQUEÇABA</h3>
 
             <div className="grid md:grid-cols-3 gap-5">
               {planosGuaraquecaba.map((plano, index) => (
@@ -197,10 +148,7 @@ export default function Home() {
                   key={plano.nome}
                   initial={{ opacity: 0, y: 45 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{
-                    duration: 0.55,
-                    delay: index * 0.12,
-                  }}
+                  transition={{ duration: 0.55, delay: index * 0.12 }}
                   viewport={{ once: true }}
                   className={`relative rounded-2xl p-6 border bg-[#06163a] hover:-translate-y-3 transition ${
                     plano.destaque
@@ -214,15 +162,11 @@ export default function Home() {
                     </div>
                   )}
 
-                  <h4 className="text-2xl font-black text-blue-400 mb-4">
-                    {plano.nome}
-                  </h4>
+                  <h4 className="text-2xl font-black text-blue-400 mb-4">{plano.nome}</h4>
 
                   <p className="mb-5">
                     <span className="text-sm">R$</span>{" "}
-                    <span className="text-5xl font-black">
-                      {plano.preco}
-                    </span>
+                    <span className="text-5xl font-black">{plano.preco}</span>
                     <span className="text-sm">/mês</span>
                   </p>
 
@@ -239,9 +183,7 @@ export default function Home() {
           </div>
 
           <div className="border border-blue-500/40 rounded-3xl p-6 bg-blue-950/40">
-            <h3 className="text-center font-black mb-6">
-              ILHAS E REGIÃO
-            </h3>
+            <h3 className="text-center font-black mb-6">ILHAS E REGIÃO</h3>
 
             <div className="grid md:grid-cols-3 gap-5">
               {planosIlhas.map((plano, index) => (
@@ -249,22 +191,15 @@ export default function Home() {
                   key={plano.nome}
                   initial={{ opacity: 0, y: 45 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{
-                    duration: 0.55,
-                    delay: index * 0.12,
-                  }}
+                  transition={{ duration: 0.55, delay: index * 0.12 }}
                   viewport={{ once: true }}
                   className="rounded-2xl p-6 border border-blue-500/50 bg-[#06163a] hover:-translate-y-3 hover:border-orange-500 transition"
                 >
-                  <h4 className="text-2xl font-black text-blue-400 mb-4">
-                    {plano.nome}
-                  </h4>
+                  <h4 className="text-2xl font-black text-blue-400 mb-4">{plano.nome}</h4>
 
                   <p className="mb-5">
                     <span className="text-sm">R$</span>{" "}
-                    <span className="text-5xl font-black">
-                      {plano.preco}
-                    </span>
+                    <span className="text-5xl font-black">{plano.preco}</span>
                     <span className="text-sm">/mês</span>
                   </p>
 
@@ -282,57 +217,117 @@ export default function Home() {
         </div>
       </section>
 
-      {/* COBERTURA */}
       <section
         id="cobertura"
-        className="py-20 px-6 bg-gradient-to-br from-[#020817] via-[#031b4d] to-[#020817]"
+        className="py-24 px-6 bg-gradient-to-br from-[#020817] via-[#031b4d] to-[#020817]"
       >
-        <div className="max-w-6xl mx-auto text-center">
-          <p className="text-orange-400 font-black tracking-widest mb-3">
-            COBERTURA
-          </p>
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -45 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+          >
+            <p className="text-orange-400 font-black tracking-widest mb-3">
+              COBERTURA
+            </p>
 
-          <h2 className="text-4xl md:text-5xl font-black mb-6">
-            Área de Cobertura GuaraLink
-          </h2>
+            <h2 className="text-4xl md:text-5xl font-black mb-6">
+              Área de Cobertura GuaraLink
+            </h2>
 
-          <p className="text-blue-100 text-lg mb-12">
-            Atendimento em Guaraqueçaba, Superagui, Medeiros e
-            Massarapuã.
-          </p>
+            <p className="text-blue-100 text-lg mb-10">
+              Atendimento em Guaraqueçaba, Superagui, Medeiros e Massarapuã.
+              Conexão para cidade, ilhas, comércio, pousadas e residências.
+            </p>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 gap-5">
+              {["Guaraqueçaba", "Superagui", "Medeiros", "Massarapuã"].map(
+                (local) => (
+                  <motion.div
+                    key={local}
+                    whileHover={{ y: -8, scale: 1.03 }}
+                    className="rounded-3xl border border-blue-500/40 bg-blue-950/50 p-6 hover:border-orange-500 transition"
+                  >
+                    <div className="text-4xl mb-3">📍</div>
+                    <h3 className="text-lg font-black">{local}</h3>
+                  </motion.div>
+                )
+              )}
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.85, x: 45 }}
+            whileInView={{ opacity: 1, scale: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="relative min-h-[480px] rounded-[2rem] border border-blue-400/40 bg-[#06163a]/80 overflow-hidden shadow-[0_0_60px_rgba(0,132,255,.25)]"
+          >
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_45%_45%,rgba(0,140,255,.75),transparent_35%),radial-gradient(circle_at_70%_65%,rgba(255,115,0,.45),transparent_25%)]" />
+
+            <div className="absolute inset-0 opacity-25 bg-[linear-gradient(90deg,rgba(255,255,255,.15)_1px,transparent_1px),linear-gradient(rgba(255,255,255,.15)_1px,transparent_1px)] bg-[size:40px_40px]" />
+
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+              className="absolute left-1/2 top-1/2 w-64 h-64 -translate-x-1/2 -translate-y-1/2 rounded-full border border-orange-400/50"
+            />
+
+            <motion.div
+              animate={{ scale: [1, 1.25, 1], opacity: [0.4, 0.8, 0.4] }}
+              transition={{ duration: 2.8, repeat: Infinity }}
+              className="absolute left-1/2 top-1/2 w-36 h-36 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-blue-300/60"
+            />
+
+            <div className="absolute left-1/2 top-1/2 w-6 h-6 -translate-x-1/2 -translate-y-1/2 rounded-full bg-orange-500 shadow-[0_0_40px_rgba(249,115,22,1)]" />
+
             {[
-              "Guaraqueçaba",
-              "Superagui",
-              "Medeiros",
-              "Massarapuã",
-            ].map((local) => (
+              { nome: "Guaraqueçaba", top: "22%", left: "18%" },
+              { nome: "Superagui", top: "28%", right: "14%" },
+              { nome: "Medeiros", bottom: "25%", left: "16%" },
+              { nome: "Massarapuã", bottom: "18%", right: "12%" },
+            ].map((ponto, index) => (
               <motion.div
-                key={local}
-                whileHover={{ y: -8 }}
-                className="rounded-3xl border border-blue-500/40 bg-blue-950/50 p-8 hover:border-orange-500 transition"
+                key={ponto.nome}
+                animate={{ y: [0, -10, 0] }}
+                transition={{
+                  duration: 2.4,
+                  delay: index * 0.25,
+                  repeat: Infinity,
+                }}
+                className="absolute"
+                style={ponto}
               >
-                <div className="text-5xl mb-4">📍</div>
-
-                <h3 className="text-xl font-black">
-                  {local}
-                </h3>
+                <div className="relative">
+                  <div className="absolute -inset-3 rounded-full bg-orange-500/30 blur-md" />
+                  <div className="relative rounded-full bg-blue-950 border border-blue-300 px-4 py-2 text-sm font-black shadow-[0_0_25px_rgba(0,132,255,.8)]">
+                    <span className="text-orange-400">●</span> {ponto.nome}
+                  </div>
+                </div>
               </motion.div>
             ))}
-          </div>
+
+            <svg
+              className="absolute inset-0 w-full h-full opacity-60"
+              viewBox="0 0 600 480"
+              fill="none"
+            >
+              <path d="M300 240 C220 120 140 120 110 105" stroke="#38bdf8" strokeWidth="2" strokeDasharray="8 8" />
+              <path d="M300 240 C390 130 470 120 520 140" stroke="#fb923c" strokeWidth="2" strokeDasharray="8 8" />
+              <path d="M300 240 C220 330 150 360 110 360" stroke="#38bdf8" strokeWidth="2" strokeDasharray="8 8" />
+              <path d="M300 240 C390 330 470 370 520 390" stroke="#fb923c" strokeWidth="2" strokeDasharray="8 8" />
+            </svg>
+          </motion.div>
         </div>
       </section>
 
-      {/* CLIENTE */}
       <section
         id="cliente"
         className="py-20 px-6 bg-gradient-to-r from-blue-950 to-blue-800"
       >
         <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-5xl font-black mb-6">
-            Área do Cliente
-          </h2>
+          <h2 className="text-5xl font-black mb-6">Área do Cliente</h2>
 
           <p className="text-xl text-blue-100 mb-10">
             Segunda via, suporte e atendimento online.
@@ -348,12 +343,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CONTATO */}
       <section className="py-20 px-6 bg-[#020817]">
         <div className="max-w-5xl mx-auto rounded-3xl border border-blue-500/40 bg-blue-950/50 p-10 text-center">
-          <h2 className="text-5xl font-black mb-6">
-            Fale com a GuaraLink
-          </h2>
+          <h2 className="text-5xl font-black mb-6">Fale com a GuaraLink</h2>
 
           <p className="text-2xl font-bold text-orange-400 mb-3">
             (41) 99612-9713
@@ -365,7 +357,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* WHATS */}
       <a
         href={whatsapp}
         target="_blank"
@@ -374,7 +365,6 @@ export default function Home() {
         ☎
       </a>
 
-      {/* FOOTER */}
       <footer className="py-8 text-center text-sm text-blue-200 bg-black">
         © 2026 GuaraLink - Todos os direitos reservados.
       </footer>
