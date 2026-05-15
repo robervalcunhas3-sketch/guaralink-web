@@ -3,6 +3,12 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+  }
+}
+
 const whatsapp =
   "https://wa.me/5541996129713?text=Olá! Quero contratar a internet da GuaraLink.";
 
@@ -20,6 +26,15 @@ const planosIlhas = [
   { nome: "200 MEGA", preco: "120" },
   { nome: "400 MEGA", preco: "150" },
 ];
+
+function trackEvent(eventName: string, label: string) {
+  if (typeof window !== "undefined" && window.gtag) {
+    window.gtag("event", eventName, {
+      event_category: "GuaraLink Site",
+      event_label: label,
+    });
+  }
+}
 
 export default function Home() {
   return (
@@ -52,8 +67,6 @@ export default function Home() {
         .particle { animation: particleFloat 4s infinite ease-in-out; }
       `}</style>
 
-      {/* HEADER */}
-
       <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-[#020817]/90 border-b border-blue-500/20">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <Image
@@ -85,14 +98,13 @@ export default function Home() {
           <a
             href={whatsapp}
             target="_blank"
+            onClick={() => trackEvent("click_whatsapp", "Assine Agora Header")}
             className="bg-orange-500 hover:bg-orange-600 px-7 py-3 rounded-2xl font-bold shadow-[0_0_30px_rgba(249,115,22,.7)] transition hover:scale-105"
           >
             Assine Agora
           </a>
         </div>
       </header>
-
-      {/* HERO */}
 
       <section
         id="inicio"
@@ -143,6 +155,9 @@ export default function Home() {
               <a
                 href={whatsapp}
                 target="_blank"
+                onClick={() =>
+                  trackEvent("click_whatsapp", "Contratar Agora Hero")
+                }
                 className="bg-orange-500 hover:bg-orange-600 px-8 py-5 rounded-2xl font-bold text-center transition hover:scale-105"
               >
                 Contratar Agora
@@ -151,6 +166,9 @@ export default function Home() {
               <a
                 href={cliente}
                 target="_blank"
+                onClick={() =>
+                  trackEvent("click_area_cliente", "Area do Cliente Hero")
+                }
                 className="border border-blue-400 px-8 py-5 rounded-2xl font-bold text-center hover:bg-blue-900 transition"
               >
                 Área do Cliente
@@ -246,8 +264,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PLANOS */}
-
       <section id="planos" className="py-24 px-6 bg-[#020817]">
         <div className="text-center mb-16">
           <p className="text-orange-400 font-black tracking-widest mb-3">
@@ -302,6 +318,9 @@ export default function Home() {
                   <a
                     href={whatsapp}
                     target="_blank"
+                    onClick={() =>
+                      trackEvent("click_plano", `Plano ${plano.nome}`)
+                    }
                     className="block text-center border border-orange-500 hover:bg-orange-500 rounded-full py-3 font-bold transition"
                   >
                     Assinar agora
@@ -343,6 +362,9 @@ export default function Home() {
                   <a
                     href={whatsapp}
                     target="_blank"
+                    onClick={() =>
+                      trackEvent("click_plano", `Plano Ilhas ${plano.nome}`)
+                    }
                     className="block text-center border border-orange-500 hover:bg-orange-500 rounded-full py-3 font-bold transition"
                   >
                     Assinar agora
@@ -353,8 +375,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* FORMULÁRIO */}
 
       <section id="contratar" className="py-24 px-6 bg-[#020817]">
         <div className="max-w-5xl mx-auto rounded-[2rem] border border-orange-500/30 bg-blue-950/40 p-10 shadow-[0_0_50px_rgba(249,115,22,.15)]">
@@ -398,6 +418,8 @@ export default function Home() {
               const plano = (
                 form.elements.namedItem("plano") as HTMLSelectElement
               ).value;
+
+              trackEvent("form_submit", `Formulario Contratacao - ${plano}`);
 
               const mensagem =
                 `Olá! Quero contratar a internet da GuaraLink.%0A%0A` +
@@ -470,8 +492,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* COBERTURA */}
-
       <section
         id="cobertura"
         className="py-24 px-6 bg-gradient-to-br from-[#020817] to-[#031a47]"
@@ -493,8 +513,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* CONTATO */}
 
       <section id="cliente" className="py-20 px-6">
         <div className="max-w-7xl mx-auto rounded-[2rem] border border-blue-500/30 bg-blue-950/30 p-10 grid lg:grid-cols-3 gap-8 items-center">
@@ -525,6 +543,9 @@ export default function Home() {
           <a
             href={whatsapp}
             target="_blank"
+            onClick={() =>
+              trackEvent("click_whatsapp", "Chamar no WhatsApp Contato")
+            }
             className="block text-center bg-orange-500 hover:bg-orange-600 rounded-2xl py-5 text-xl font-black transition hover:scale-105"
           >
             Chamar no WhatsApp
@@ -532,17 +553,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* WHATSAPP */}
-
       <a
         href={whatsapp}
         target="_blank"
+        onClick={() => trackEvent("click_whatsapp", "Botao Flutuante")}
         className="fixed bottom-8 right-8 z-50 w-16 h-16 rounded-full bg-green-500 flex items-center justify-center pulse text-2xl"
       >
         📞
       </a>
-
-      {/* FOOTER */}
 
       <footer className="py-10 border-t border-blue-500/20">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
