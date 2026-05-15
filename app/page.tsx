@@ -35,8 +35,21 @@ export default function Home() {
           50% { box-shadow: 0 0 40px rgba(255,115,0,.9); }
         }
 
+        @keyframes fiberMove {
+          0% { transform: translateX(-20%) translateY(0); opacity: .25; }
+          50% { transform: translateX(15%) translateY(-20px); opacity: .7; }
+          100% { transform: translateX(-20%) translateY(0); opacity: .25; }
+        }
+
+        @keyframes particleFloat {
+          0%,100% { transform: translateY(0); opacity: .35; }
+          50% { transform: translateY(-25px); opacity: 1; }
+        }
+
         .pulse { animation: pulse 2s infinite; }
         .glow { animation: glow 2.5s infinite; }
+        .fiber { animation: fiberMove 9s infinite ease-in-out; }
+        .particle { animation: particleFloat 4s infinite ease-in-out; }
       `}</style>
 
       <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-[#020817]/90 border-b border-blue-500/20">
@@ -75,6 +88,20 @@ export default function Home() {
         }}
       >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_35%,rgba(0,132,255,.45),transparent_30%),radial-gradient(circle_at_90%_50%,rgba(255,115,0,.35),transparent_30%)]" />
+
+        <div className="fiber absolute inset-0 opacity-40 bg-[repeating-linear-gradient(25deg,transparent_0px,transparent_18px,rgba(56,189,248,.35)_20px,transparent_23px)]" />
+
+        {[...Array(18)].map((_, i) => (
+          <span
+            key={i}
+            className="particle absolute w-2 h-2 rounded-full bg-orange-400 shadow-[0_0_20px_rgba(249,115,22,1)]"
+            style={{
+              left: `${5 + i * 5}%`,
+              top: `${20 + (i % 5) * 13}%`,
+              animationDelay: `${i * 0.25}s`,
+            }}
+          />
+        ))}
 
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-center relative z-10">
           <motion.div
@@ -116,29 +143,21 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div className="border border-blue-500/30 rounded-2xl p-4 bg-blue-950/40">
-                <div className="text-3xl mb-3">⚡</div>
-                <p className="text-3xl font-black">500</p>
-                <span className="text-sm text-blue-200">Mbps</span>
-              </div>
-
-              <div className="border border-blue-500/30 rounded-2xl p-4 bg-blue-950/40">
-                <div className="text-3xl mb-3">📶</div>
-                <p className="text-3xl font-black">&lt;10ms</p>
-                <span className="text-sm text-blue-200">Latência</span>
-              </div>
-
-              <div className="border border-blue-500/30 rounded-2xl p-4 bg-blue-950/40">
-                <div className="text-3xl mb-3">🛡️</div>
-                <p className="text-3xl font-black">99.9%</p>
-                <span className="text-sm text-blue-200">Uptime</span>
-              </div>
-
-              <div className="border border-blue-500/30 rounded-2xl p-4 bg-blue-950/40">
-                <div className="text-3xl mb-3">🎧</div>
-                <p className="text-3xl font-black">Local</p>
-                <span className="text-sm text-blue-200">Suporte</span>
-              </div>
+              {[
+                ["⚡", "500", "Mbps"],
+                ["📶", "<10ms", "Latência"],
+                ["🛡️", "99.9%", "Uptime"],
+                ["🎧", "Local", "Suporte"],
+              ].map(([icon, value, label]) => (
+                <div
+                  key={label}
+                  className="border border-blue-500/30 rounded-2xl p-4 bg-blue-950/40 backdrop-blur"
+                >
+                  <div className="text-3xl mb-3">{icon}</div>
+                  <p className="text-3xl font-black">{value}</p>
+                  <span className="text-sm text-blue-200">{label}</span>
+                </div>
+              ))}
             </div>
           </motion.div>
 
@@ -150,6 +169,7 @@ export default function Home() {
           >
             <div className="relative w-full max-w-[650px] h-[500px] rounded-[2rem] border border-blue-500/30 bg-[#06163a]/80 overflow-hidden shadow-[0_0_80px_rgba(0,132,255,.25)]">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,132,255,.45),transparent_40%)]" />
+              <div className="absolute inset-0 opacity-25 bg-[linear-gradient(90deg,rgba(255,255,255,.15)_1px,transparent_1px),linear-gradient(rgba(255,255,255,.15)_1px,transparent_1px)] bg-[size:40px_40px]" />
 
               <div className="absolute left-1/2 top-1/2 w-5 h-5 rounded-full bg-orange-500 shadow-[0_0_40px_rgba(255,115,0,1)] -translate-x-1/2 -translate-y-1/2" />
 
@@ -186,7 +206,6 @@ export default function Home() {
       <section id="planos" className="py-24 px-6 bg-[#020817]">
         <div className="text-center mb-16">
           <p className="text-orange-400 font-black tracking-widest mb-3">PLANOS</p>
-
           <h2 className="text-4xl md:text-5xl font-black">
             Escolha o plano ideal para você
           </h2>
