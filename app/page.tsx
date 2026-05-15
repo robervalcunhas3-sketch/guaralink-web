@@ -4,8 +4,9 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 const whatsapp = "https://wa.me/5541996129713";
+
 const beesweb =
-  "https://app.beesweb.com.br/clientes?order_by=name,asc";
+  "https://wa.me/5541996129713?text=Olá! Quero acessar minha área do cliente da GuaraLink.";
 
 const planosGuaraquecaba = [
   { nome: "300 MEGA", preco: "100", destaque: false },
