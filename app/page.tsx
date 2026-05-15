@@ -21,8 +21,8 @@ const planosGuaraquecaba = [
   { nome: "500 MEGA", preco: "139,90", destaque: false },
 ];
 
-const planosIlhas = [
- { nome: "100 MEGA", preco: "100" },
+const planosSuperagui = [
+  { nome: "100 MEGA", preco: "100" },
   { nome: "200 MEGA", preco: "120" },
   { nome: "400 MEGA", preco: "150" },
 ];
@@ -31,6 +31,7 @@ const planosMedeiros = [
   { nome: "100 MEGA", preco: "100" },
   { nome: "200 MEGA", preco: "139,90" },
 ];
+ 
 
 function trackEvent(eventName: string, label: string) {
   if (typeof window !== "undefined" && window.gtag) {
@@ -341,10 +342,11 @@ export default function Home() {
             </h3>
 
             <div className="grid md:grid-cols-3 gap-5">
-              {planosIlhas.map((plano) => (
+             {planosSuperagui.map((plano) => (
                 <div
-                  key={plano.nome}
-                  className="rounded-3xl p-6 border border-blue-500/30 bg-[#09152f] transition hover:-translate-y-3 hover:border-orange-500"
+  key={plano.nome}
+  className="rounded-3xl p-6 border border-blue-500/30 bg-[#09152f] transition hover:-translate-y-3 hover:border-orange-500"
+
                 >
                   <h4 className="text-3xl font-black text-blue-400 mb-4">
                     {plano.nome}
