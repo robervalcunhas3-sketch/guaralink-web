@@ -1,4 +1,4 @@
-"use client";
+""use client";
 
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -13,7 +13,6 @@ import {
   Facebook,
   Gauge,
 } from "lucide-react";
-
 const whatsapp =
   "https://wa.me/5541996129713?text=Olá! Quero contratar a internet da GuaraLink.";
 
