@@ -3,95 +3,138 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-const whatsapp = "https://wa.me/5541996129713";
+import {
+  Wifi,
+  ShieldCheck,
+  Headphones,
+  Zap,
+  MapPin,
+  Instagram,
+  Facebook,
+  Gauge,
+} from "lucide-react";
+
+const whatsapp =
+  "https://wa.me/5541996129713?text=Olá! Quero contratar a internet da GuaraLink.";
 
 const cliente =
-  "https://wa.me/5541996129713?text=Olá! Quero acessar minha área do cliente da GuaraLink.";
+  "https://wa.me/5541996129713?text=Olá! Preciso de suporte da GuaraLink.";
 
-const planosGuaraquecaba = [
-  { nome: "300 MEGA", preco: "100", destaque: false },
-  { nome: "400 MEGA", preco: "110", destaque: true },
-  { nome: "500 MEGA", preco: "139,90", destaque: false },
+const planosCidade = [
+  { mega: "300 MEGA", preco: "100", destaque: false },
+  { mega: "400 MEGA", preco: "110", destaque: true },
+  { mega: "500 MEGA", preco: "139,90", destaque: false },
 ];
 
 const planosIlhas = [
-  { nome: "100 MEGA", preco: "100" },
-  { nome: "200 MEGA", preco: "120" },
-  { nome: "400 MEGA", preco: "150" },
+  { mega: "100 MEGA", preco: "100" },
+  { mega: "200 MEGA", preco: "120" },
+  { mega: "400 MEGA", preco: "150" },
 ];
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#020817] text-white overflow-hidden">
+    <main className="bg-[#020817] text-white overflow-hidden">
       <style>{`
-        @keyframes pulseWhats {
-          0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(34,197,94,.7); }
-          50% { transform: scale(1.08); box-shadow: 0 0 0 18px rgba(34,197,94,0); }
+        @keyframes pulse {
+          0%,100% {
+            transform: scale(1);
+          }
+          50% {
+            transform: scale(1.08);
+          }
         }
 
         @keyframes glow {
-          0%, 100% { box-shadow: 0 0 20px rgba(255,115,0,.35); }
-          50% { box-shadow: 0 0 45px rgba(255,115,0,.75); }
+          0%,100% {
+            box-shadow: 0 0 15px rgba(255,115,0,.4);
+          }
+          50% {
+            box-shadow: 0 0 40px rgba(255,115,0,.9);
+          }
         }
 
-        .whats-pulse { animation: pulseWhats 2s infinite; }
-        .glow-card { animation: glow 2.5s infinite ease-in-out; }
+        .pulse {
+          animation: pulse 2s infinite;
+        }
+
+        .glow {
+          animation: glow 2.5s infinite;
+        }
       `}</style>
 
-      <header className="fixed top-0 left-0 right-0 z-50 bg-[#020817]/90 backdrop-blur-xl border-b border-blue-500/20">
-        <div className="max-w-7xl mx-auto px-5 py-4 flex items-center justify-between">
+      {/* HEADER */}
+
+      <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-[#020817]/90 border-b border-blue-500/20">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <Image
             src="/logo-guaralink.jpeg"
             alt="GuaraLink"
-            width={150}
-            height={65}
+            width={160}
+            height={70}
             className="rounded-xl bg-white p-1"
           />
 
-          <nav className="hidden md:flex gap-8 font-semibold text-sm">
-            <a href="#inicio" className="text-orange-400">Início</a>
-            <a href="#planos" className="hover:text-orange-400 transition">Planos</a>
-            <a href="#cobertura" className="hover:text-orange-400 transition">Cobertura</a>
-            <a href="#cliente" className="hover:text-orange-400 transition">Área do Cliente</a>
+          <nav className="hidden md:flex items-center gap-10 font-semibold">
+            <a href="#inicio" className="text-orange-400">
+              Início
+            </a>
+
+            <a href="#planos" className="hover:text-orange-400 transition">
+              Planos
+            </a>
+
+            <a href="#cobertura" className="hover:text-orange-400 transition">
+              Cobertura
+            </a>
+
+            <a href="#cliente" className="hover:text-orange-400 transition">
+              Suporte
+            </a>
           </nav>
 
           <a
             href={whatsapp}
             target="_blank"
-            className="bg-orange-500 hover:bg-orange-600 px-6 py-3 rounded-2xl font-bold shadow-[0_0_25px_rgba(249,115,22,.6)] transition hover:scale-105"
+            className="bg-orange-500 hover:bg-orange-600 px-7 py-3 rounded-2xl font-bold shadow-[0_0_30px_rgba(249,115,22,.7)] transition hover:scale-105"
           >
             Assine Agora
           </a>
         </div>
       </header>
 
+      {/* HERO */}
+
       <section
         id="inicio"
-        className="relative min-h-screen pt-32 px-6 flex items-center bg-gradient-to-br from-[#020817] via-[#06205c] to-[#020817]"
+        className="relative min-h-screen flex items-center pt-32 px-6 overflow-hidden"
       >
-        <div className="absolute inset-0 opacity-40 bg-[radial-gradient(circle_at_80%_40%,rgba(0,132,255,.9),transparent_35%),radial-gradient(circle_at_90%_50%,rgba(255,115,0,.8),transparent_25%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_35%,rgba(0,132,255,.5),transparent_30%),radial-gradient(circle_at_90%_50%,rgba(255,115,0,.5),transparent_30%)]" />
 
-        <div className="relative max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-center w-full">
+        <div className="absolute right-0 top-0 w-[700px] h-[700px] bg-blue-500/20 blur-[120px]" />
+
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-center relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 45 }}
+            initial={{ opacity: 0, y: 60 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-block border border-blue-400/60 rounded-full px-5 py-2 text-sm font-bold text-blue-100 mb-6 bg-blue-900/40">
+            <div className="inline-block border border-blue-400/40 bg-blue-950/40 rounded-full px-5 py-2 text-sm font-bold mb-6">
               GUARALINK — INTERNET FIBRA ÓPTICA
             </div>
 
-            <h1 className="text-6xl md:text-8xl font-black leading-none mb-6 drop-shadow-[0_0_25px_rgba(59,130,246,.9)]">
+            <h1 className="text-6xl md:text-8xl font-black leading-none mb-6">
               INTERNET
               <br />
               DE VERDADE
             </h1>
 
-            <p className="text-xl md:text-2xl text-blue-100 max-w-2xl mb-8 font-medium">
+            <p className="text-xl text-blue-100 max-w-2xl mb-8">
               Fibra óptica em Guaraqueçaba, Superagui, Medeiros e Massarapuã.
+              Rápida, estável e sem surpresas na fatura.
             </p>
 
-            <div className="flex flex-col md:flex-row gap-4 max-w-3xl mb-10">
+            <div className="flex flex-col md:flex-row gap-4 mb-12">
               <a
                 href={whatsapp}
                 target="_blank"
@@ -108,265 +151,354 @@ export default function Home() {
                 Área do Cliente
               </a>
             </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="border border-blue-500/30 rounded-2xl p-4 bg-blue-950/30">
+                <Gauge className="text-orange-400 mb-3" />
+                <p className="text-3xl font-black">500</p>
+                <span className="text-sm text-blue-200">Mbps</span>
+              </div>
+
+              <div className="border border-blue-500/30 rounded-2xl p-4 bg-blue-950/30">
+                <Wifi className="text-orange-400 mb-3" />
+                <p className="text-3xl font-black">&lt;10ms</p>
+                <span className="text-sm text-blue-200">Latência</span>
+              </div>
+
+              <div className="border border-blue-500/30 rounded-2xl p-4 bg-blue-950/30">
+                <ShieldCheck className="text-orange-400 mb-3" />
+                <p className="text-3xl font-black">99.9%</p>
+                <span className="text-sm text-blue-200">Uptime</span>
+              </div>
+
+              <div className="border border-blue-500/30 rounded-2xl p-4 bg-blue-950/30">
+                <Headphones className="text-orange-400 mb-3" />
+                <p className="text-3xl font-black">Local</p>
+                <span className="text-sm text-blue-200">Suporte</span>
+              </div>
+            </div>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.85, x: 80 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
+            initial={{ opacity: 0, scale: 0.85 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
-            className="hidden lg:block"
+            className="hidden lg:block relative"
           >
-            <motion.div
-              animate={{ y: [0, -15, 0] }}
-              transition={{ duration: 4, repeat: Infinity }}
-            >
-              <Image
-                src="/logo-guaralink.jpeg"
-                alt="GuaraLink"
-                width={620}
-                height={320}
-                className="rounded-3xl shadow-[0_0_50px_rgba(0,132,255,.55)] bg-white p-3"
-              />
-            </motion.div>
+            <div className="absolute inset-0 bg-orange-500/20 blur-[100px]" />
+
+            <Image
+              src="/logo-guaralink.jpeg"
+              alt="GuaraLink"
+              width={650}
+              height={400}
+              className="relative z-10 rounded-[2rem] bg-white p-3 shadow-[0_0_80px_rgba(0,132,255,.45)]"
+            />
           </motion.div>
         </div>
       </section>
 
-      <section id="planos" className="py-24 px-6 bg-[#020817]">
-        <div className="text-center mb-14">
-          <p className="text-orange-400 font-black tracking-widest">PLANOS</p>
-          <h2 className="text-4xl md:text-5xl font-black">Escolha o plano ideal</h2>
+      {/* PLANOS */}
+
+      <section id="planos" className="py-24 px-6">
+        <div className="text-center mb-16">
+          <p className="text-orange-400 font-black tracking-widest mb-3">
+            PLANOS
+          </p>
+
+          <h2 className="text-5xl font-black">
+            Escolha o plano ideal para você
+          </h2>
         </div>
 
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-8">
-          <div className="border border-blue-500/40 rounded-3xl p-6 bg-blue-950/40">
-            <h3 className="text-center font-black mb-6">GUARAQUEÇABA</h3>
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10">
+          {/* CIDADE */}
+
+          <div className="border border-blue-500/30 rounded-[2rem] bg-blue-950/30 p-8">
+            <h3 className="text-center font-black text-2xl mb-8">
+              GUARAQUEÇABA
+            </h3>
 
             <div className="grid md:grid-cols-3 gap-5">
-              {planosGuaraquecaba.map((plano, index) => (
-                <motion.div
-                  key={plano.nome}
-                  initial={{ opacity: 0, y: 45 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.55, delay: index * 0.12 }}
-                  viewport={{ once: true }}
-                  className={`relative rounded-2xl p-6 border bg-[#06163a] hover:-translate-y-3 transition ${
+              {planosCidade.map((plano) => (
+                <div
+                  key={plano.mega}
+                  className={`rounded-3xl p-6 border transition hover:-translate-y-3 ${
                     plano.destaque
-                      ? "border-orange-500 glow-card scale-105"
-                      : "border-blue-500/50"
+                      ? "border-orange-500 glow bg-[#09152f]"
+                      : "border-blue-500/30 bg-[#09152f]"
                   }`}
                 >
                   {plano.destaque && (
-                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-orange-500 px-4 py-1 rounded-full text-xs font-black">
+                    <div className="bg-orange-500 rounded-full px-3 py-1 text-xs font-black inline-block mb-4">
                       MAIS CONTRATADO
                     </div>
                   )}
 
-                  <h4 className="text-2xl font-black text-blue-400 mb-4">{plano.nome}</h4>
+                  <h4 className="text-3xl font-black text-blue-400 mb-4">
+                    {plano.mega}
+                  </h4>
 
-                  <p className="mb-5">
+                  <p className="mb-6">
                     <span className="text-sm">R$</span>{" "}
-                    <span className="text-5xl font-black">{plano.preco}</span>
-                    <span className="text-sm">/mês</span>
+                    <span className="text-5xl font-black">
+                      {plano.preco}
+                    </span>
+                    <span>/mês</span>
                   </p>
+
+                  <ul className="space-y-2 text-blue-100 mb-8">
+                    <li>• Fibra Óptica</li>
+                    <li>• Wi-Fi Grátis</li>
+                    <li>• Suporte Local</li>
+                  </ul>
 
                   <a
                     href={whatsapp}
                     target="_blank"
-                    className="block text-center border border-blue-400 hover:bg-orange-500 hover:border-orange-500 rounded-full py-3 font-bold transition"
+                    className="block text-center border border-orange-500 hover:bg-orange-500 rounded-full py-3 font-bold transition"
                   >
                     Assinar agora
                   </a>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
 
-          <div className="border border-blue-500/40 rounded-3xl p-6 bg-blue-950/40">
-            <h3 className="text-center font-black mb-6">ILHAS E REGIÃO</h3>
+          {/* ILHAS */}
+
+          <div className="border border-blue-500/30 rounded-[2rem] bg-blue-950/30 p-8">
+            <h3 className="text-center font-black text-2xl mb-8">
+              SUPERAGUI, MEDEIROS E MASSARAPUÃ
+            </h3>
 
             <div className="grid md:grid-cols-3 gap-5">
-              {planosIlhas.map((plano, index) => (
-                <motion.div
-                  key={plano.nome}
-                  initial={{ opacity: 0, y: 45 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.55, delay: index * 0.12 }}
-                  viewport={{ once: true }}
-                  className="rounded-2xl p-6 border border-blue-500/50 bg-[#06163a] hover:-translate-y-3 hover:border-orange-500 transition"
+              {planosIlhas.map((plano) => (
+                <div
+                  key={plano.mega}
+                  className="rounded-3xl p-6 border border-blue-500/30 bg-[#09152f] transition hover:-translate-y-3 hover:border-orange-500"
                 >
-                  <h4 className="text-2xl font-black text-blue-400 mb-4">{plano.nome}</h4>
+                  <h4 className="text-3xl font-black text-blue-400 mb-4">
+                    {plano.mega}
+                  </h4>
 
-                  <p className="mb-5">
+                  <p className="mb-6">
                     <span className="text-sm">R$</span>{" "}
-                    <span className="text-5xl font-black">{plano.preco}</span>
-                    <span className="text-sm">/mês</span>
+                    <span className="text-5xl font-black">
+                      {plano.preco}
+                    </span>
+                    <span>/mês</span>
                   </p>
+
+                  <ul className="space-y-2 text-blue-100 mb-8">
+                    <li>• Fibra Óptica</li>
+                    <li>• Wi-Fi Grátis</li>
+                    <li>• Suporte Local</li>
+                  </ul>
 
                   <a
                     href={whatsapp}
                     target="_blank"
-                    className="block text-center border border-blue-400 hover:bg-orange-500 hover:border-orange-500 rounded-full py-3 font-bold transition"
+                    className="block text-center border border-orange-500 hover:bg-orange-500 rounded-full py-3 font-bold transition"
                   >
                     Assinar agora
                   </a>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
         </div>
       </section>
+
+      {/* COBERTURA */}
 
       <section
         id="cobertura"
-        className="py-24 px-6 bg-gradient-to-br from-[#020817] via-[#031b4d] to-[#020817]"
+        className="py-24 px-6 bg-gradient-to-br from-[#020817] to-[#031a47]"
       >
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -45 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true }}
-          >
-            <p className="text-orange-400 font-black tracking-widest mb-3">
+          <div>
+            <p className="text-orange-400 font-black tracking-widest mb-4">
               COBERTURA
             </p>
 
-            <h2 className="text-4xl md:text-5xl font-black mb-6">
-              Área de Cobertura GuaraLink
+            <h2 className="text-5xl font-black mb-8">
+              Conectando Guaraqueçaba e suas ilhas
             </h2>
 
-            <p className="text-blue-100 text-lg mb-10">
-              Atendimento em Guaraqueçaba, Superagui, Medeiros e Massarapuã.
-              Conexão para cidade, ilhas, comércio, pousadas e residências.
+            <p className="text-blue-100 text-xl mb-10">
+              Atendimento de qualidade em Guaraqueçaba, Superagui, Medeiros e
+              Massarapuã com a melhor fibra óptica da região.
             </p>
 
             <div className="grid grid-cols-2 gap-5">
-              {["Guaraqueçaba", "Superagui", "Medeiros", "Massarapuã"].map(
-                (local) => (
-                  <motion.div
-                    key={local}
-                    whileHover={{ y: -8, scale: 1.03 }}
-                    className="rounded-3xl border border-blue-500/40 bg-blue-950/50 p-6 hover:border-orange-500 transition"
-                  >
-                    <div className="text-4xl mb-3">📍</div>
-                    <h3 className="text-lg font-black">{local}</h3>
-                  </motion.div>
-                )
-              )}
+              {[
+                "Guaraqueçaba",
+                "Superagui",
+                "Medeiros",
+                "Massarapuã",
+              ].map((cidade) => (
+                <div
+                  key={cidade}
+                  className="border border-blue-500/30 rounded-2xl p-5 bg-blue-950/30"
+                >
+                  <MapPin className="text-orange-400 mb-3" />
+
+                  <p className="font-bold">{cidade}</p>
+                </div>
+              ))}
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.85, x: 45 }}
-            whileInView={{ opacity: 1, scale: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="relative min-h-[480px] rounded-[2rem] border border-blue-400/40 bg-[#06163a]/80 overflow-hidden shadow-[0_0_60px_rgba(0,132,255,.25)]"
-          >
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_45%_45%,rgba(0,140,255,.75),transparent_35%),radial-gradient(circle_at_70%_65%,rgba(255,115,0,.45),transparent_25%)]" />
+          {/* MAPA */}
 
-            <div className="absolute inset-0 opacity-25 bg-[linear-gradient(90deg,rgba(255,255,255,.15)_1px,transparent_1px),linear-gradient(rgba(255,255,255,.15)_1px,transparent_1px)] bg-[size:40px_40px]" />
+          <div className="relative h-[500px] rounded-[2rem] border border-blue-500/30 bg-[#06163a] overflow-hidden">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,132,255,.5),transparent_40%)]" />
 
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-              className="absolute left-1/2 top-1/2 w-64 h-64 -translate-x-1/2 -translate-y-1/2 rounded-full border border-orange-400/50"
-            />
-
-            <motion.div
-              animate={{ scale: [1, 1.25, 1], opacity: [0.4, 0.8, 0.4] }}
-              transition={{ duration: 2.8, repeat: Infinity }}
-              className="absolute left-1/2 top-1/2 w-36 h-36 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-blue-300/60"
-            />
-
-            <div className="absolute left-1/2 top-1/2 w-6 h-6 -translate-x-1/2 -translate-y-1/2 rounded-full bg-orange-500 shadow-[0_0_40px_rgba(249,115,22,1)]" />
+            <div className="absolute left-[50%] top-[50%] w-5 h-5 rounded-full bg-orange-500 shadow-[0_0_40px_rgba(255,115,0,1)]" />
 
             {[
-              { nome: "Guaraqueçaba", top: "22%", left: "18%" },
-              { nome: "Superagui", top: "28%", right: "14%" },
-              { nome: "Medeiros", bottom: "25%", left: "16%" },
-              { nome: "Massarapuã", bottom: "18%", right: "12%" },
-            ].map((ponto, index) => (
+              {
+                nome: "Guaraqueçaba",
+                top: "18%",
+                right: "20%",
+              },
+              {
+                nome: "Superagui",
+                top: "38%",
+                right: "8%",
+              },
+              {
+                nome: "Medeiros",
+                bottom: "28%",
+                right: "18%",
+              },
+              {
+                nome: "Massarapuã",
+                bottom: "10%",
+                right: "10%",
+              },
+            ].map((cidade) => (
               <motion.div
-                key={ponto.nome}
+                key={cidade.nome}
                 animate={{ y: [0, -10, 0] }}
                 transition={{
-                  duration: 2.4,
-                  delay: index * 0.25,
+                  duration: 2,
                   repeat: Infinity,
                 }}
                 className="absolute"
-                style={ponto}
+                style={cidade}
               >
-                <div className="relative">
-                  <div className="absolute -inset-3 rounded-full bg-orange-500/30 blur-md" />
-                  <div className="relative rounded-full bg-blue-950 border border-blue-300 px-4 py-2 text-sm font-black shadow-[0_0_25px_rgba(0,132,255,.8)]">
-                    <span className="text-orange-400">●</span> {ponto.nome}
-                  </div>
+                <div className="bg-blue-950 border border-blue-400 rounded-full px-4 py-2 shadow-[0_0_25px_rgba(0,132,255,.7)]">
+                  <span className="text-orange-400">●</span>{" "}
+                  {cidade.nome}
                 </div>
               </motion.div>
             ))}
-
-            <svg
-              className="absolute inset-0 w-full h-full opacity-60"
-              viewBox="0 0 600 480"
-              fill="none"
-            >
-              <path d="M300 240 C220 120 140 120 110 105" stroke="#38bdf8" strokeWidth="2" strokeDasharray="8 8" />
-              <path d="M300 240 C390 130 470 120 520 140" stroke="#fb923c" strokeWidth="2" strokeDasharray="8 8" />
-              <path d="M300 240 C220 330 150 360 110 360" stroke="#38bdf8" strokeWidth="2" strokeDasharray="8 8" />
-              <path d="M300 240 C390 330 470 370 520 390" stroke="#fb923c" strokeWidth="2" strokeDasharray="8 8" />
-            </svg>
-          </motion.div>
+          </div>
         </div>
       </section>
+
+      {/* BENEFICIOS */}
+
+      <section className="py-12 px-6 border-y border-blue-500/20">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-6 text-center">
+          <div>
+            <Zap className="mx-auto text-orange-400 mb-3" />
+            <p className="font-black">INSTALAÇÃO RÁPIDA</p>
+          </div>
+
+          <div>
+            <ShieldCheck className="mx-auto text-orange-400 mb-3" />
+            <p className="font-black">SEM FIDELIDADE</p>
+          </div>
+
+          <div>
+            <Wifi className="mx-auto text-orange-400 mb-3" />
+            <p className="font-black">ESTÁVEL E CONFIÁVEL</p>
+          </div>
+
+          <div>
+            <Headphones className="mx-auto text-orange-400 mb-3" />
+            <p className="font-black">SUPORTE LOCAL</p>
+          </div>
+        </div>
+      </section>
+
+      {/* CONTATO */}
 
       <section
         id="cliente"
-        className="py-20 px-6 bg-gradient-to-r from-blue-950 to-blue-800"
+        className="py-20 px-6"
       >
-        <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-5xl font-black mb-6">Área do Cliente</h2>
+        <div className="max-w-7xl mx-auto rounded-[2rem] border border-blue-500/30 bg-blue-950/30 p-10 grid lg:grid-cols-3 gap-8 items-center">
+          <div>
+            <h2 className="text-4xl font-black mb-4">
+              Fale com a GuaraLink
+            </h2>
 
-          <p className="text-xl text-blue-100 mb-10">
-            Segunda via, suporte e atendimento online.
-          </p>
+            <p className="text-blue-100">
+              Estamos prontos para te atender.
+            </p>
+          </div>
 
-          <a
-            href={cliente}
-            target="_blank"
-            className="inline-block bg-orange-500 hover:bg-orange-600 px-10 py-5 rounded-2xl font-black text-xl transition hover:scale-105 shadow-[0_0_30px_rgba(249,115,22,.7)]"
-          >
-            Falar com Suporte
-          </a>
+          <div>
+            <p className="text-orange-400 font-bold mb-2">
+              WhatsApp
+            </p>
+
+            <p className="text-3xl font-black">
+              (41) 99612-9713
+            </p>
+
+            <p className="text-blue-200 mt-3">
+              guaralink.guaraquecaba@gmail.com
+            </p>
+          </div>
+
+          <div>
+            <a
+              href={whatsapp}
+              target="_blank"
+              className="block text-center bg-orange-500 hover:bg-orange-600 rounded-2xl py-5 text-xl font-black transition hover:scale-105"
+            >
+              Chamar no WhatsApp
+            </a>
+          </div>
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-[#020817]">
-        <div className="max-w-5xl mx-auto rounded-3xl border border-blue-500/40 bg-blue-950/50 p-10 text-center">
-          <h2 className="text-5xl font-black mb-6">Fale com a GuaraLink</h2>
-
-          <p className="text-2xl font-bold text-orange-400 mb-3">
-            (41) 99612-9713
-          </p>
-
-          <p className="text-blue-100 text-lg">
-            guaralink.guaraquecaba@gmail.com
-          </p>
-        </div>
-      </section>
+      {/* FLOAT */}
 
       <a
         href={whatsapp}
         target="_blank"
-        className="fixed bottom-8 right-8 z-50 w-16 h-16 rounded-full bg-green-500 flex items-center justify-center text-3xl whats-pulse"
+        className="fixed bottom-8 right-8 z-50 w-16 h-16 rounded-full bg-green-500 flex items-center justify-center pulse"
       >
-        ☎
+        <Wifi />
       </a>
 
-      <footer className="py-8 text-center text-sm text-blue-200 bg-black">
-        © 2026 GuaraLink - Todos os direitos reservados.
+      {/* FOOTER */}
+
+      <footer className="py-10 border-t border-blue-500/20">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+          <Image
+            src="/logo-guaralink.jpeg"
+            alt="GuaraLink"
+            width={140}
+            height={60}
+            className="rounded-xl bg-white p-1"
+          />
+
+          <p className="text-blue-200 text-sm">
+            © 2026 GuaraLink - Todos os direitos reservados.
+          </p>
+
+          <div className="flex gap-5">
+            <Instagram className="hover:text-orange-400 transition cursor-pointer" />
+            <Facebook className="hover:text-orange-400 transition cursor-pointer" />
+          </div>
+        </div>
       </footer>
     </main>
   );
