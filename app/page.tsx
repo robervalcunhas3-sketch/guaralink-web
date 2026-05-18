@@ -13,7 +13,7 @@ const whatsapp =
   "https://wa.me/5541996129713?text=Olá! Quero contratar a internet da GuaraLink.";
 
 const cliente =
-  "https://wa.me/5541996129713?text=Olá! Preciso de suporte da GuaraLink.";
+   "https://guaralinkguaraquecaba.beesweb.com.br/pre-cadastro";
 
 const planosGuaraquecaba = [
   { nome: "300 MEGA", preco: "100", destaque: false },
