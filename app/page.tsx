@@ -172,6 +172,13 @@ export default function Home() {
                 className="border border-blue-400 px-8 py-5 rounded-2xl font-bold text-center hover:bg-blue-900 transition"
               >
                 Área do Cliente
+                <a
+              href={preCadastro}
+              target="_blank"
+              className="bg-green-600 hover:bg-green-700 px-8 py-5 rounded-2xl font-bold text-center text-white transition hover:scale-105"
+>
+              Pré-cadastro
+            
               </a>
             </div>
 
