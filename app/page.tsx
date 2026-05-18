@@ -20,6 +20,8 @@ const planosGuaraquecaba = [
   { nome: "400 MEGA", preco: "110", destaque: true },
   { nome: "500 MEGA", preco: "139,90", destaque: false },
 ];
+const preCadastro =
+  "https://guaralinkguaraquecaba.beesweb.com.br/pre-cadastro";
 
 const planosSuperagui = [
   { nome: "100 MEGA", preco: "100" },
