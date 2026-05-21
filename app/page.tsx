@@ -12,16 +12,16 @@ declare global {
 const whatsapp =
   "https://wa.me/5541996129713?text=Olá! Quero contratar a internet da GuaraLink.";
 
-const cliente =
-     "https://guaralinkguaraquecaba.beesweb.com.br";
+const cliente = "https://guaralinkguaraquecaba.beesweb.com.br";
+
+const preCadastro =
+  "https://guaralinkguaraquecaba.beesweb.com.br/pre-cadastro";
 
 const planosGuaraquecaba = [
   { nome: "300 MEGA", preco: "100", destaque: false },
   { nome: "400 MEGA", preco: "110", destaque: true },
   { nome: "500 MEGA", preco: "139,90", destaque: false },
 ];
-const preCadastro =
-  "https://guaralinkguaraquecaba.beesweb.com.br/pre-cadastro";
 
 const planosSuperagui = [
   { nome: "100 MEGA", preco: "100" },
@@ -159,7 +159,9 @@ export default function Home() {
               <a
                 href={whatsapp}
                 target="_blank"
-                onClick={() => trackEvent("click_whatsapp", "Contratar Agora Hero")}
+                onClick={() =>
+                  trackEvent("click_whatsapp", "Contratar Agora Hero")
+                }
                 className="bg-orange-500 hover:bg-orange-600 px-8 py-5 rounded-2xl font-bold text-center transition hover:scale-105"
               >
                 Contratar Agora
@@ -168,17 +170,23 @@ export default function Home() {
               <a
                 href={cliente}
                 target="_blank"
-                onClick={() => trackEvent("click_area_cliente", "Area do Cliente Hero")}
+                onClick={() =>
+                  trackEvent("click_area_cliente", "Area do Cliente Hero")
+                }
                 className="border border-blue-400 px-8 py-5 rounded-2xl font-bold text-center hover:bg-blue-900 transition"
               >
                 Área do Cliente
-                <a
-              href={preCadastro}
-              target="_blank"
-              className="bg-green-600 hover:bg-green-700 px-8 py-5 rounded-2xl font-bold text-center text-white transition hover:scale-105"
->
-              Pré-cadastro
-            
+              </a>
+
+              <a
+                href={preCadastro}
+                target="_blank"
+                onClick={() =>
+                  trackEvent("click_pre_cadastro", "Pre Cadastro Hero")
+                }
+                className="bg-green-600 hover:bg-green-700 px-8 py-5 rounded-2xl font-bold text-center text-white transition hover:scale-105"
+              >
+                Pré-cadastro
               </a>
             </div>
 
@@ -231,11 +239,35 @@ export default function Home() {
                 </motion.div>
               ))}
 
-              <svg className="absolute inset-0 w-full h-full opacity-70" viewBox="0 0 600 500" fill="none">
-                <path d="M300 250 C380 140 470 120 520 120" stroke="#fb923c" strokeWidth="2" strokeDasharray="8 8" />
-                <path d="M300 250 C390 230 500 240 540 260" stroke="#38bdf8" strokeWidth="2" strokeDasharray="8 8" />
-                <path d="M300 250 C390 330 480 340 520 360" stroke="#fb923c" strokeWidth="2" strokeDasharray="8 8" />
-                <path d="M300 250 C350 380 430 430 520 450" stroke="#38bdf8" strokeWidth="2" strokeDasharray="8 8" />
+              <svg
+                className="absolute inset-0 w-full h-full opacity-70"
+                viewBox="0 0 600 500"
+                fill="none"
+              >
+                <path
+                  d="M300 250 C380 140 470 120 520 120"
+                  stroke="#fb923c"
+                  strokeWidth="2"
+                  strokeDasharray="8 8"
+                />
+                <path
+                  d="M300 250 C390 230 500 240 540 260"
+                  stroke="#38bdf8"
+                  strokeWidth="2"
+                  strokeDasharray="8 8"
+                />
+                <path
+                  d="M300 250 C390 330 480 340 520 360"
+                  stroke="#fb923c"
+                  strokeWidth="2"
+                  strokeDasharray="8 8"
+                />
+                <path
+                  d="M300 250 C350 380 430 430 520 450"
+                  stroke="#38bdf8"
+                  strokeWidth="2"
+                  strokeDasharray="8 8"
+                />
               </svg>
             </div>
           </motion.div>
@@ -294,7 +326,12 @@ export default function Home() {
                   <a
                     href={whatsapp}
                     target="_blank"
-                    onClick={() => trackEvent("click_plano", `Plano Guaraqueçaba ${plano.nome}`)}
+                    onClick={() =>
+                      trackEvent(
+                        "click_plano",
+                        `Plano Guaraqueçaba ${plano.nome}`
+                      )
+                    }
                     className="block text-center border border-orange-500 hover:bg-orange-500 rounded-full py-3 font-bold transition"
                   >
                     Assinar agora
@@ -334,7 +371,9 @@ export default function Home() {
                   <a
                     href={whatsapp}
                     target="_blank"
-                    onClick={() => trackEvent("click_plano", `Plano Superagui ${plano.nome}`)}
+                    onClick={() =>
+                      trackEvent("click_plano", `Plano Superagui ${plano.nome}`)
+                    }
                     className="block text-center border border-orange-500 hover:bg-orange-500 rounded-full py-3 font-bold transition"
                   >
                     Assinar agora
@@ -374,7 +413,12 @@ export default function Home() {
                   <a
                     href={whatsapp}
                     target="_blank"
-                    onClick={() => trackEvent("click_plano", `Plano Medeiros Massarapua ${plano.nome}`)}
+                    onClick={() =>
+                      trackEvent(
+                        "click_plano",
+                        `Plano Medeiros Massarapua ${plano.nome}`
+                      )
+                    }
                     className="block text-center border border-orange-500 hover:bg-orange-500 rounded-full py-3 font-bold transition"
                   >
                     Assinar agora
@@ -408,11 +452,21 @@ export default function Home() {
               e.preventDefault();
 
               const form = e.currentTarget;
-              const nome = (form.elements.namedItem("nome") as HTMLInputElement).value;
-              const telefone = (form.elements.namedItem("telefone") as HTMLInputElement).value;
-              const endereco = (form.elements.namedItem("endereco") as HTMLInputElement).value;
-              const localidade = (form.elements.namedItem("localidade") as HTMLSelectElement).value;
-              const plano = (form.elements.namedItem("plano") as HTMLSelectElement).value;
+              const nome = (
+                form.elements.namedItem("nome") as HTMLInputElement
+              ).value;
+              const telefone = (
+                form.elements.namedItem("telefone") as HTMLInputElement
+              ).value;
+              const endereco = (
+                form.elements.namedItem("endereco") as HTMLInputElement
+              ).value;
+              const localidade = (
+                form.elements.namedItem("localidade") as HTMLSelectElement
+              ).value;
+              const plano = (
+                form.elements.namedItem("plano") as HTMLSelectElement
+              ).value;
 
               trackEvent("form_submit", `Formulario Contratacao - ${plano}`);
 
@@ -424,14 +478,38 @@ export default function Home() {
                 `Localidade: ${localidade}%0A` +
                 `Plano desejado: ${plano}`;
 
-              window.open(`https://wa.me/5541996129713?text=${mensagem}`, "_blank");
+              window.open(
+                `https://wa.me/5541996129713?text=${mensagem}`,
+                "_blank"
+              );
             }}
           >
-            <input name="nome" required placeholder="Nome completo" className="rounded-2xl bg-white/95 text-slate-900 px-5 py-4 outline-none" />
-            <input name="telefone" required placeholder="WhatsApp" className="rounded-2xl bg-white/95 text-slate-900 px-5 py-4 outline-none" />
-            <input name="endereco" required placeholder="Endereço completo" className="md:col-span-2 rounded-2xl bg-white/95 text-slate-900 px-5 py-4 outline-none" />
+            <input
+              name="nome"
+              required
+              placeholder="Nome completo"
+              className="rounded-2xl bg-white/95 text-slate-900 px-5 py-4 outline-none"
+            />
 
-            <select name="localidade" required className="rounded-2xl bg-white/95 text-slate-900 px-5 py-4 outline-none">
+            <input
+              name="telefone"
+              required
+              placeholder="WhatsApp"
+              className="rounded-2xl bg-white/95 text-slate-900 px-5 py-4 outline-none"
+            />
+
+            <input
+              name="endereco"
+              required
+              placeholder="Endereço completo"
+              className="md:col-span-2 rounded-2xl bg-white/95 text-slate-900 px-5 py-4 outline-none"
+            />
+
+            <select
+              name="localidade"
+              required
+              className="rounded-2xl bg-white/95 text-slate-900 px-5 py-4 outline-none"
+            >
               <option value="">Selecione a localidade</option>
               <option>Guaraqueçaba</option>
               <option>Superagui</option>
@@ -439,7 +517,11 @@ export default function Home() {
               <option>Massarapuã</option>
             </select>
 
-            <select name="plano" required className="rounded-2xl bg-white/95 text-slate-900 px-5 py-4 outline-none">
+            <select
+              name="plano"
+              required
+              className="rounded-2xl bg-white/95 text-slate-900 px-5 py-4 outline-none"
+            >
               <option value="">Selecione o plano</option>
               <option>300 Mega Guaraqueçaba - R$ 100</option>
               <option>400 Mega Guaraqueçaba - R$ 110</option>
@@ -461,7 +543,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="cobertura" className="py-24 px-6 bg-gradient-to-br from-[#020817] to-[#031a47]">
+      <section
+        id="cobertura"
+        className="py-24 px-6 bg-gradient-to-br from-[#020817] to-[#031a47]"
+      >
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <p className="text-orange-400 font-black tracking-widest mb-4">
@@ -478,12 +563,17 @@ export default function Home() {
             </p>
 
             <div className="grid grid-cols-2 gap-5">
-              {["Guaraqueçaba", "Superagui", "Medeiros", "Massarapuã"].map((cidade) => (
-                <div key={cidade} className="border border-blue-500/30 rounded-2xl p-5 bg-blue-950/30">
-                  <div className="text-3xl mb-3">📍</div>
-                  <p className="font-bold">{cidade}</p>
-                </div>
-              ))}
+              {["Guaraqueçaba", "Superagui", "Medeiros", "Massarapuã"].map(
+                (cidade) => (
+                  <div
+                    key={cidade}
+                    className="border border-blue-500/30 rounded-2xl p-5 bg-blue-950/30"
+                  >
+                    <div className="text-3xl mb-3">📍</div>
+                    <p className="font-bold">{cidade}</p>
+                  </div>
+                )
+              )}
             </div>
           </div>
 
@@ -523,13 +613,17 @@ export default function Home() {
           <div>
             <p className="text-orange-400 font-bold mb-2">WhatsApp</p>
             <p className="text-3xl font-black">(41) 99612-9713</p>
-            <p className="text-blue-200 mt-3">guaralink.guaraquecaba@gmail.com</p>
+            <p className="text-blue-200 mt-3">
+              guaralink.guaraquecaba@gmail.com
+            </p>
           </div>
 
           <a
             href={whatsapp}
             target="_blank"
-            onClick={() => trackEvent("click_whatsapp", "Chamar no WhatsApp Contato")}
+            onClick={() =>
+              trackEvent("click_whatsapp", "Chamar no WhatsApp Contato")
+            }
             className="block text-center bg-orange-500 hover:bg-orange-600 rounded-2xl py-5 text-xl font-black transition hover:scale-105"
           >
             Chamar no WhatsApp
