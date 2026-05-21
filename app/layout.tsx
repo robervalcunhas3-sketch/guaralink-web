@@ -5,12 +5,22 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: "GuaraLink - Internet Fibra Óptica",
+export const metadata = {
+  title: "GuaraLink - Internet Fibra Óptica em Guaraqueçaba",
   description:
-    "Internet fibra óptica em Guaraqueçaba, Superagui, Medeiros e Massarapuã.",
+    "Internet fibra óptica em Guaraqueçaba, Superagui, Medeiros e Massarapuã. Planos rápidos, estáveis e suporte local.",
+  keywords:
+    "internet guaraqueçaba, fibra óptica guaraqueçaba, internet superagui, guaralink, internet medeiros, internet massarapua",
+  icons: {
+    icon: "/logo-guaralink.jpeg",
+  },
+  openGraph: {
+    title: "GuaraLink Internet Fibra Óptica",
+    description:
+      "Internet rápida e estável em Guaraqueçaba e região.",
+    images: ["/logo-guaralink.jpeg"],
+  },
 };
-
 export default function RootLayout({
   children,
 }: {
