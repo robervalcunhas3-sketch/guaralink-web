@@ -13,6 +13,8 @@ const whatsapp =
   "https://wa.me/5541996129713?text=Olá! Quero contratar a internet da GuaraLink.";
 
 const cliente = "https://guaralinkguaraquecaba.beesweb.com.br";
+const fatura =
+ "https://guaralinkguaraquecaba.beesweb.com.br/financeiro/segunda-via";
 
 const preCadastro =
   "https://guaralinkguaraquecaba.beesweb.com.br/pre-cadastro";
@@ -184,7 +186,7 @@ export default function Home() {
   </a>
 
   <a
-    href={cliente}
+    href={fatura} 
     target="_blank"
     className="bg-yellow-500 hover:bg-yellow-600 px-8 py-5 rounded-2xl font-bold text-center text-black transition hover:scale-105"
   >
