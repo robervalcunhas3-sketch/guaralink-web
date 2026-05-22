@@ -188,14 +188,13 @@ export default function Home() {
               >
                 Pré-cadastro
               </a>
-              2ª Via da Fatura
-               <a
-               href={cliente}
-               target="_blank"
-               className="bg-yellow-500 hover:bg-yellow-600 px-8 py-5 rounded-2xl font-bold text-center text-black"
-                >
-         
-              </a>
+             <a
+  href={cliente}
+  target="_blank"
+  className="bg-yellow-500 hover:bg-yellow-600 px-8 py-5 rounded-2xl font-bold text-center text-black transition hover:scale-105"
+>
+  2ª Via da Fatura
+</a>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {[
