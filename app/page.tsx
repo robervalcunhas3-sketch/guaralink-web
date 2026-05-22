@@ -211,7 +211,7 @@ export default function Home() {
                   <p className="text-3xl font-black">{value}</p>
                   <span className="text-sm text-blue-200">{label}</span>
                 </div>
-              ))}
+              )}
             </div>
           </motion.div>
 
@@ -305,7 +305,7 @@ export default function Home() {
                     plano.destaque
                       ? "border-orange-500 glow bg-[#09152f]"
                       : "border-blue-500/30 bg-[#09152f]"
-                  }`}
+                  }`}S
                 >
                   {plano.destaque && (
                     <div className="bg-orange-500 rounded-full px-3 py-1 text-xs font-black inline-block mb-4">
