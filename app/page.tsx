@@ -155,64 +155,60 @@ export default function Home() {
               Rápida, estável e sem surpresas na fatura.
             </p>
 
-            <div className="flex flex-col md:flex-row gap-4 mb-12">
-              <a
-                href={whatsapp}
-                target="_blank"
-                onClick={() =>
-                  trackEvent("click_whatsapp", "Contratar Agora Hero")
-                }
-                className="bg-orange-500 hover:bg-orange-600 px-8 py-5 rounded-2xl font-bold text-center transition hover:scale-105"
-              >
-                Contratar Agora
-              </a>
+           <div className="flex flex-col md:flex-row gap-4 mb-12">
+  <a
+    href={whatsapp}
+    target="_blank"
+    onClick={() => trackEvent("click_whatsapp", "Contratar Agora Hero")}
+    className="bg-orange-500 hover:bg-orange-600 px-8 py-5 rounded-2xl font-bold text-center transition hover:scale-105"
+  >
+    Contratar Agora
+  </a>
 
-              <a
-                href={cliente}
-                target="_blank"
-                onClick={() =>
-                  trackEvent("click_area_cliente", "Area do Cliente Hero")
-                }
-                className="border border-blue-400 px-8 py-5 rounded-2xl font-bold text-center hover:bg-blue-900 transition"
-              >
-                Área do Cliente
-              </a>
+  <a
+    href={cliente}
+    target="_blank"
+    onClick={() => trackEvent("click_area_cliente", "Area do Cliente Hero")}
+    className="border border-blue-400 px-8 py-5 rounded-2xl font-bold text-center hover:bg-blue-900 transition"
+  >
+    Área do Cliente
+  </a>
 
-              <a
-                href={preCadastro}
-                target="_blank"
-                onClick={() =>
-                  trackEvent("click_pre_cadastro", "Pre Cadastro Hero")
-                }
-                className="bg-green-600 hover:bg-green-700 px-8 py-5 rounded-2xl font-bold text-center text-white transition hover:scale-105"
-              >
-                Pré-cadastro
-              </a>
-             <a
-  href={cliente}
-  target="_blank"
-  className="bg-yellow-500 hover:bg-yellow-600 px-8 py-5 rounded-2xl font-bold text-center text-black transition hover:scale-105"
->
-  2ª Via da Fatura
-</a>
+  <a
+    href={preCadastro}
+    target="_blank"
+    onClick={() => trackEvent("click_pre_cadastro", "Pre Cadastro Hero")}
+    className="bg-green-600 hover:bg-green-700 px-8 py-5 rounded-2xl font-bold text-center text-white transition hover:scale-105"
+  >
+    Pré-cadastro
+  </a>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {[
-                ["⚡", "500", "Mbps"],
-                ["📶", "<10ms", "Latência"],
-                ["🛡️", "99.9%", "Uptime"],
-                ["🎧", "Local", "Suporte"],
-              ].map(([icon, value, label]) => (
-                <div
-                  key={label}
-                  className="border border-blue-500/30 rounded-2xl p-4 bg-blue-950/40 backdrop-blur"
-                >
-                  <div className="text-3xl mb-3">{icon}</div>
-                  <p className="text-3xl font-black">{value}</p>
-                  <span className="text-sm text-blue-200">{label}</span>
-                </div>
-              )}
-            </div>
+  <a
+    href={cliente}
+    target="_blank"
+    className="bg-yellow-500 hover:bg-yellow-600 px-8 py-5 rounded-2xl font-bold text-center text-black transition hover:scale-105"
+  >
+    2ª Via da Fatura
+  </a>
+</div>
+
+<div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+  {[
+    ["⚡", "500", "Mbps"],
+    ["📶", "<10ms", "Latência"],
+    ["🛡️", "99.9%", "Uptime"],
+    ["🎧", "Local", "Suporte"],
+  ].map(([icon, value, label]) => (
+    <div
+      key={label}
+      className="border border-blue-500/30 rounded-2xl p-4 bg-blue-950/40 backdrop-blur"
+    >
+      <div className="text-3xl mb-3">{icon}</div>
+      <p className="text-3xl font-black">{value}</p>
+      <span className="text-sm text-blue-200">{label}</span>
+    </div>
+  ))}
+</div>
           </motion.div>
 
           <motion.div
@@ -305,7 +301,7 @@ export default function Home() {
                     plano.destaque
                       ? "border-orange-500 glow bg-[#09152f]"
                       : "border-blue-500/30 bg-[#09152f]"
-                  }`}S
+                   }`}
                 >
                   {plano.destaque && (
                     <div className="bg-orange-500 rounded-full px-3 py-1 text-xs font-black inline-block mb-4">
