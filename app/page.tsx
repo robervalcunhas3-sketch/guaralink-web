@@ -173,7 +173,7 @@ export default function Home() {
     onClick={() => trackEvent("click_area_cliente", "Area do Cliente Hero")}
     className="border border-blue-400 px-8 py-5 rounded-2xl font-bold text-center hover:bg-blue-900 transition"
   >
-    Central do Cliente
+   
   </a>
 
   <a
