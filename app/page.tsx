@@ -171,7 +171,7 @@ export default function Home() {
     onClick={() => trackEvent("click_area_cliente", "Area do Cliente Hero")}
     className="border border-blue-400 px-8 py-5 rounded-2xl font-bold text-center hover:bg-blue-900 transition"
   >
-    Área do Cliente
+    Central do Cliente
   </a>
 
   <a
@@ -188,7 +188,8 @@ export default function Home() {
     target="_blank"
     className="bg-yellow-500 hover:bg-yellow-600 px-8 py-5 rounded-2xl font-bold text-center text-black transition hover:scale-105"
   >
-    2ª Via da Fatura
+    2ª Via
+da Fatura
   </a>
 </div>
 
